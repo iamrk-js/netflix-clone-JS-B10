@@ -1,0 +1,43 @@
+.movieCard {
+    height: 100vh;
+    position: relative;
+}
+
+.movieCard img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.movieCard figcaption {
+    position: absolute;
+    top: 0%;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, .8), rgba(0, 0, 0, .6) 80%,
+     transparent);
+    color: #fff;
+}
+
+.mainSlider .owl-prev, .mainSlider .owl-next {
+    position: absolute;
+    top: 50%;
+    font-size: 28px !important;
+    color: #fff !important;
+}
+
+.mainSlider .owl-prev{
+    left: 10px;
+}
+
+.mainSlider .owl-next{
+    right: 10px;
+}
+
+.mainSlider .owl-dots {
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    left: 0;
+    width: 100%;
+}

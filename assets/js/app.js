@@ -1,7 +1,5 @@
-let cl = console.log;
 
-const baseurl = "https://api.themoviedb.org/3";
-const apiKey = '1ab0b6ee06ec01c77561b6ad6e0c1901';
+
 const trendingMovies = `${baseurl}/trending/all/week?api_key=${apiKey}`
 
 const trendingMovSlider = document.getElementById("trendingMovSlider");
@@ -18,22 +16,40 @@ const trendingMovSlider = document.getElementById("trendingMovSlider");
 //         })
 // }
 
+const loadParams = (ele) => {
+    // cl(ele)
+    let movieId = ele.id;
+    cl(movieId);
+
+    let currentUrl = new URL(window.location.href);
+
+    let queryParams = new URLSearchParams(currentUrl.search);
+
+    queryParams.set("movieid", movieId)
+    currentUrl.search = queryParams.toString();
+  
+
+    let movieUrl = `${currentUrl.origin}/movieinfo.html${currentUrl.search}`;
+    cl(movieUrl)
+    window.location.href = movieUrl;
+}
+
 const insertMainSliderItems = (arr) => {
     let result = '';
     arr.forEach(movObj => {
         result += `
         <div class="item">
-            <figure class="m-0 movieCard" id="${movObj.id}">
+            <figure class="m-0 movieCard" id="${movObj.id}" onclick="loadParams(this)">
                 <img src="https://image.tmdb.org/t/p/original/${movObj.poster_path}"
-                    alt="The Hunger Games: The Ballad of Songbirds & Snakes"
-                    title="The Hunger Games: The Ballad of Songbirds & Snakes">
+                    alt="${movObj.title}"
+                    title="${movObj.title}">
                 <figcaption class="caption d-flex justify-content-center flex-column pl-4">
-                    <h3 class="display-3">
-                    ${movObj.title}
-                    </h3>
-                    <em>
-                       ${movObj.overview}
-                    </em>
+                        <h3 class="display-3">
+                        ${movObj.title || movObj.name}
+                        </h3>
+                        <em class="d-none d-md-block">
+                        ${movObj.overview}
+                        </em>
                 </figcaption>
             </figure>
         </div>
@@ -45,14 +61,7 @@ const insertMainSliderItems = (arr) => {
 }
 
 
-const makeApiCall = async (apiUrl, methodName, msgBody = null) => {
-    let res = await fetch(apiUrl, {
-        body: msgBody,
-        method: methodName
-    })
 
-    return res.json()
-}
 
 const getTrendinMovies = async () => {
     let trendingData = await makeApiCall(trendingMovies, "GET")
@@ -65,10 +74,12 @@ const getTrendinMovies = async () => {
         navText : ['<i class="fa-solid fa-angles-left"></i>','<i class="fa-solid fa-angles-right"></i>'],
         responsive: {
             0: {
-                items: 1
+                items: 1,
+                dots:false
             },
             600: {
-                items: 1
+                items: 1,
+                dots:false
             },
             1000: {
                 items: 1,

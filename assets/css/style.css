@@ -1,6 +1,11 @@
+body {
+    background-color: #181818;
+}
+
 .movieCard {
     height: 100vh;
     position: relative;
+    cursor: pointer;
 }
 
 .movieCard img {
@@ -8,29 +13,43 @@
     object-fit: cover;
 }
 
-.movieCard figcaption {
+.caption {
     position: absolute;
     top: 0%;
     left: 0;
     width: 50%;
     height: 100%;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, .8), rgba(0, 0, 0, .6) 80%,
-     transparent);
+    background-image: linear-gradient(90deg, #181818 10%,
+            hsla(0, 0%, 9%, .98) 20%,
+            hsla(0, 0%, 9%, .97) 25%,
+            hsla(0, 0%, 9%, .95) 35%,
+            hsla(0, 0%, 9%, .94) 40%,
+            hsla(0, 0%, 9%, .92) 45%,
+            hsla(0, 0%, 9%, .9) 50%,
+            hsla(0, 0%, 9%, .87) 55%,
+            hsla(0, 0%, 9%, .82) 60%,
+            hsla(0, 0%, 9%, .75) 65%,
+            hsla(0, 0%, 9%, .63) 70%, hsla(0, 0%, 9%, .55) 75%, hsla(0, 0%, 9%, .47) 80%,
+            hsla(0, 0%, 9%, .25) 85%,
+            hsla(0, 0%, 9%, .18) 90%,
+            hsla(0, 0%, 9%, .13) 95%,
+            hsla(0, 0%, 9%, 0));
     color: #fff;
 }
 
-.mainSlider .owl-prev, .mainSlider .owl-next {
+.mainSlider .owl-prev,
+.mainSlider .owl-next {
     position: absolute;
     top: 50%;
     font-size: 28px !important;
     color: #fff !important;
 }
 
-.mainSlider .owl-prev{
+.mainSlider .owl-prev {
     left: 10px;
 }
 
-.mainSlider .owl-next{
+.mainSlider .owl-next {
     right: 10px;
 }
 
@@ -40,4 +59,23 @@
     text-align: center;
     left: 0;
     width: 100%;
+}
+
+
+.heroImg {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.heroImg figure {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: absolute;
+    left: 0;
+    top: 0;
+    filter: blur(4px);
 }

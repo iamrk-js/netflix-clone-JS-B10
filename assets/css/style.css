@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Ubuntu+Condensed&display=swap');
+
 body {
     background-color: #181818;
+
+    font-family: 'Ubuntu Condensed', sans-serif;
 }
 
 .movieCard {
@@ -36,13 +40,16 @@ body {
             hsla(0, 0%, 9%, 0));
     color: #fff;
 }
-
+.caption h3{
+    font-family: 'Roboto', sans-serif !important;
+}
 .mainSlider .owl-prev,
 .mainSlider .owl-next {
     position: absolute;
     top: 50%;
     font-size: 28px !important;
-    color: #fff !important;
+    color: #e50914  !important;
+    background-color: transparent !important;
 }
 
 .mainSlider .owl-prev {
@@ -62,13 +69,37 @@ body {
 }
 
 
-.heroImg {
+.singleMovie {
     height: 100vh;
     width: 100%;
     position: relative;
+
+    color: #fff;
 }
 
-.heroImg figure {
+.bgImg::before {
+    content: '';
+    width: 80%;
+    height: 100%;
+    background-image: linear-gradient(90deg, #181818 10%,
+            hsla(0, 0%, 9%, .98) 20%,
+            hsla(0, 0%, 9%, .97) 25%,
+            hsla(0, 0%, 9%, .95) 35%,
+            hsla(0, 0%, 9%, .94) 40%,
+            hsla(0, 0%, 9%, .92) 45%,
+            hsla(0, 0%, 9%, .9) 50%,
+            hsla(0, 0%, 9%, .87) 55%,
+            hsla(0, 0%, 9%, .82) 60%,
+            hsla(0, 0%, 9%, .75) 65%,
+            hsla(0, 0%, 9%, .63) 70%, hsla(0, 0%, 9%, .55) 75%, hsla(0, 0%, 9%, .47) 80%,
+            hsla(0, 0%, 9%, .25) 85%,
+            hsla(0, 0%, 9%, .18) 90%,
+            hsla(0, 0%, 9%, .13) 95%,
+            hsla(0, 0%, 9%, 0));
+    display: block;
+}
+
+.heroImg .bgImg {
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -78,4 +109,60 @@ body {
     left: 0;
     top: 0;
     filter: blur(4px);
+}
+
+.singleMovie .logo {
+    width: 200px;
+    margin-bottom: 50px;
+}
+
+.singleMovie figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10;
+    position: relative;
+    height: 100%;
+}
+
+.singleMovie .title {
+    margin-bottom: 30px;
+}
+
+.singleMovie .details {
+    color: #a3a3a3;
+    list-style: none;
+    display: flex;
+    padding: 0;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.singleMovie .details li {
+    padding: 0 20px;
+    position: relative;
+}
+
+.singleMovie .details li:first-child {
+    padding-left: 0;
+}
+
+.singleMovie .details li:nth-child(2) span {
+    border: 2px solid #a3a3a3;
+    display: block;
+    padding: 0 10px;
+}
+
+.singleMovie .details li:not(:first-child)::after {
+    content: '';
+    width: 1px;
+    display: block;
+    height: 80%;
+    background-color: #a3a3a3;
+    position: absolute;
+    top: 10%;
+    left: 0;
+}
+
+.staring strong { 
+    color: #a3a3a3;
 }

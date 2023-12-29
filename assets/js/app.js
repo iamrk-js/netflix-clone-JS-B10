@@ -71,7 +71,7 @@ const getTrendinMovies = async () => {
         margin: 10,
         nav: true,
         autoplay : true,
-        navText : ['<i class="fa-solid fa-angles-left"></i>','<i class="fa-solid fa-angles-right"></i>'],
+        navText : ['<i class="fa-solid fa-angle-left"></i>','<i class="fa-solid fa-angle-right"></i>'],
         responsive: {
             0: {
                 items: 1,

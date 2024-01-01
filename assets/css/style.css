@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Ubuntu+Condensed&display=swap');
 
-body {
-    background-color: #181818;
-
-    font-family: 'Ubuntu Condensed', sans-serif;
-}
-
 .movieCard {
     height: 100vh;
     position: relative;
@@ -40,23 +34,27 @@ body {
             hsla(0, 0%, 9%, 0));
     color: #fff;
 }
-.caption h3{
+
+.caption h3 {
     font-family: 'Roboto', sans-serif !important;
 }
+
 .mainSlider .owl-prev,
-.mainSlider .owl-next {
+.mainSlider .owl-next,
+#trailersSlider .owl-prev,
+#trailersSlider .owl-next {
     position: absolute;
     top: 50%;
     font-size: 28px !important;
-    color: #e50914  !important;
+    color: #e50914 !important;
     background-color: transparent !important;
 }
 
-.mainSlider .owl-prev {
+.mainSlider .owl-prev , #trailersSlider .owl-prev{
     left: 10px;
 }
 
-.mainSlider .owl-next {
+#trailersSlider .owl-next, .mainSlider .owl-next {
     right: 10px;
 }
 
@@ -75,6 +73,17 @@ body {
     position: relative;
 
     color: #fff;
+}
+
+.singleMovie::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10vh;
+    background-image: linear-gradient(0deg, #181818, transparent);
+    z-index: 9;
 }
 
 .bgImg::before {
@@ -163,7 +172,7 @@ body {
     left: 0;
 }
 
-.staring strong { 
+.staring strong {
     color: #a3a3a3;
 }
 
@@ -175,4 +184,30 @@ body {
     color: red;
     z-index: 9;
     cursor: pointer;
+}
+#trailersSlider{
+    position: relative;
+}
+#trailersSlider figure i {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    color: #fff;
+    background-color: #000;
+    border-radius: 50%;
+}
+#trailersSlider figure img{
+    height: 100%;
+    transform: scale(2);
+}
+div#trailersSlider figure {
+    position: relative;
+    cursor: pointer;
+    height: 360px;
+    overflow: hidden;
+}
+
+
+#trailersSlider p {
+    color: #fff;
 }

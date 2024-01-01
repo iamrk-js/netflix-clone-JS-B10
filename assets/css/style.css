@@ -108,7 +108,7 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    filter: blur(4px);
+    /* filter: blur(4px); */
 }
 
 .singleMovie .logo {
@@ -165,4 +165,14 @@ body {
 
 .staring strong { 
     color: #a3a3a3;
+}
+
+.goBacktoHomePage {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    font-size: 48px;
+    color: red;
+    z-index: 9;
+    cursor: pointer;
 }

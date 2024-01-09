@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     // let movObj = await makeApiCall(movieUrl, "GET");
     // let movVideos = await makeApiCall(movieVideoUrl, "GET");
     // let starCast = await makeApiCall(starCastUrl, "GET");
-
+   
     // cl(movObj);
     cl(movVideos);
     // cl(starCast);
@@ -62,15 +62,15 @@ document.addEventListener('DOMContentLoaded', async function () {
                     </div>
                 `
     singleMovieFig.append(figure);
-    let trailerSliderItems =``
+ 
+    let trailerSliderItems = ``
     movVideos.results.forEach((ele) => {
         // cl(ele)
         let imgUrl = `https://img.youtube.com/vi/${ele.key}/0.jpg`;
         cl(imgUrl)
         trailerSliderItems += `
-            <div class="item">
+            <div class="item" data-src="${ele.id}">
             <figure>
-                
                 <img src="${imgUrl}" alt="">
                 <figcaption>
                     <i class="fa-solid fa-circle-play fa-3x"></i>
@@ -103,8 +103,19 @@ document.addEventListener('DOMContentLoaded', async function () {
                 items: 3,
 
             }
-        }
-    })
+        },
+        onInitialized: carouselInitialized,
+        // onTranslated: carouselTranslated
+    });
+
+
+    function carouselInitialized(event) {
+        // Bind click event to each item
+        $("#trailersSlider .item").on("click", function(eve){
+           cl($(this)['0'].dataset.src)
+        });
+    }
+
 })
 
 

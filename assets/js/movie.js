@@ -13,18 +13,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     let movieVideoUrl = `${baseurl}/movie/${movieId}/videos?api_key=${apiKey}`;
     let starCastUrl = `${baseurl}/movie/${movieId}/credits?api_key=${apiKey}`;
     let [movObj, movVideos, starCast] = await Promise.all([makeApiCall(movieUrl, "GET"), makeApiCall(movieVideoUrl, "GET"), makeApiCall(starCastUrl, "GET")])
-    // let movObj = await makeApiCall(movieUrl, "GET");
-    // let movVideos = await makeApiCall(movieVideoUrl, "GET");
-    // let starCast = await makeApiCall(starCastUrl, "GET");
-   
-    // cl(movObj);
-    cl(movVideos);
-    // cl(starCast);
-    // cl(movieData)
-    // let mainStarCast = starCast.cast.filter(c => c.order >= 0 && c.order <= 7);
-    // cl(mainStarCast)
+
     const singleMovie = document.querySelector("#singleMovie .bgImg");
-    // singleMovie.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${movObj.backdrop_path})`;
     singleMovie.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${movObj.backdrop_path})`;
     let mainStarCast = starCast.cast.filter(c => c.order >= 0 && c.order <= 7);
     cl(mainStarCast)
@@ -62,14 +52,14 @@ document.addEventListener('DOMContentLoaded', async function () {
                     </div>
                 `
     singleMovieFig.append(figure);
- 
+
     let trailerSliderItems = ``
     movVideos.results.forEach((ele) => {
-        // cl(ele)
+        cl(ele)
         let imgUrl = `https://img.youtube.com/vi/${ele.key}/0.jpg`;
-        cl(imgUrl)
+        // cl(imgUrl)
         trailerSliderItems += `
-            <div class="item" data-src="${ele.id}">
+            <div class="item" data-video-id="${ele.key}">
             <figure>
                 <img src="${imgUrl}" alt="">
                 <figcaption>
@@ -103,19 +93,8 @@ document.addEventListener('DOMContentLoaded', async function () {
                 items: 3,
 
             }
-        },
-        onInitialized: carouselInitialized,
-        // onTranslated: carouselTranslated
+        }
     });
-
-
-    function carouselInitialized(event) {
-        // Bind click event to each item
-        $("#trailersSlider .item").on("click", function(eve){
-           cl($(this)['0'].dataset.src)
-        });
-    }
-
 })
 
 
@@ -123,3 +102,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 goBacktoHomePage.addEventListener("click", function () {
     history.back();
 })
+
+
+
+

@@ -185,29 +185,3 @@
     z-index: 9;
     cursor: pointer;
 }
-#trailersSlider{
-    position: relative;
-}
-#trailersSlider figure i {
-    position: absolute;
-    bottom: 10px;
-    left: 20px;
-    color: #fff;
-    background-color: #000;
-    border-radius: 50%;
-}
-#trailersSlider figure img{
-    height: 100%;
-    transform: scale(2);
-}
-div#trailersSlider figure {
-    position: relative;
-    cursor: pointer;
-    height: 360px;
-    overflow: hidden;
-}
-
-
-#trailersSlider p {
-    color: #fff;
-}

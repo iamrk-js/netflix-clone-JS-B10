@@ -4,6 +4,17 @@ cl(baseurl)
 const singleMovieFig = document.querySelector("#singleMovie figure");
 const goBacktoHomePage = document.getElementById("goBacktoHomePage");
 const trailersSlider = document.getElementById("trailersSlider");
+const backDrop = document.getElementById("backDrop");
+const movieModal = document.getElementById("movieModal");
+const iframe = document.getElementById('youtube-video');
+const playTrailer = (ele) => {
+    cl(ele.dataset.id)
+    backDrop.classList.remove("d-none")
+    movieModal.classList.remove("d-none")
+    let videoId = ele.dataset.id;
+   
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+}
 
 document.addEventListener('DOMContentLoaded', async function () {
     let currentUrl = new URL(window.location.href);
@@ -55,11 +66,11 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     let trailerSliderItems = ``
     movVideos.results.forEach((ele) => {
-        cl(ele)
+        // cl(ele)
         let imgUrl = `https://img.youtube.com/vi/${ele.key}/0.jpg`;
         // cl(imgUrl)
         trailerSliderItems += `
-            <div class="item" data-video-id="${ele.key}">
+            <div class="item" data-id="${ele.key}" onclick="playTrailer(this)">
             <figure>
                 <img src="${imgUrl}" alt="">
                 <figcaption>
@@ -103,6 +114,13 @@ goBacktoHomePage.addEventListener("click", function () {
     history.back();
 })
 
+
+backDrop.addEventListener("click", () => {
+    cl("clciked")
+    iframe.src = ``;
+    backDrop.classList.toggle("d-none")
+    movieModal.classList.toggle("d-none")
+})
 
 
 

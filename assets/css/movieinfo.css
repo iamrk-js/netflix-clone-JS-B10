@@ -1,3 +1,33 @@
+#trailersSlider {
+    position: relative;
+}
+
+#trailersSlider figure i {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    color: #fff;
+    background-color: #000;
+    border-radius: 50%;
+}
+
+#trailersSlider figure img {
+    height: 100%;
+    transform: scale(2);
+}
+
+div#trailersSlider figure {
+    position: relative;
+    cursor: pointer;
+    height: 260px;
+    overflow: hidden;
+}
+
+
+#trailersSlider p {
+    color: #fff;
+}
+
 .backDrop {
     position: fixed;
     top: 0;
@@ -11,14 +41,19 @@
 
 .movieModal {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
+    top: 30%;
+    left: 20%;
+    width: 60%;
+    height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 20;
+}
+
+iframe#youtube-video {
+    width: 100%;
+    height: 100%;
 }
 
 .modal-container {
